@@ -1,0 +1,17 @@
+managed implementation in class zbp_ju_i_rap_student_001 unique;
+strict ( 2 );
+
+define behavior for zju_i_rap_student_001 alias Student
+persistent table zju_student_001
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+
+field ( numbering : managed ) Id;
+field ( readonly : update ) Id;
+
+  create;
+  update;
+  delete;
+}

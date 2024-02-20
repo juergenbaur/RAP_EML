@@ -1,0 +1,17 @@
+managed implementation in class zbp_ju_i_travel_m_000 unique;
+strict ( 2 );
+
+define behavior for ZJU_I_TRAVEL_M_000 alias Travel
+persistent table zju_travel_000
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+
+  create;
+  update;
+  delete;
+
+
+
+}
