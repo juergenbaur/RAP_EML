@@ -21,13 +21,18 @@ CLASS zju_cl_rap_eml_000 IMPLEMENTATION.
     " use ZI, not ZC bcs BDEF refers to ZI
     " ENTITY travel = Behavior Definition
 
-*    " step 1 - READ
+*    " step 1a - READ
 *    READ ENTITIES OF zju_i_rap_student_001
 *      ENTITY Student
 *        FROM VALUE #( ( id = 'F6D07DF566731EDF87D1FE115C8B17AE' ) )
 *      RESULT DATA(students).
 *    out->write( students ).
-*
+*    " step 1b - READ
+    READ ENTITIES OF zju_i_rap_student_001
+      ENTITY Student
+        FROM VALUE #( ( id = 'F6D07DF566731EDF87D1FE115C8B17AE' ) )
+      RESULT DATA(students).
+    out->write( students ).
 *    " step 2 - READ specific fields
 *    READ ENTITIES OF zju_i_rap_student_001
 *      ENTITY Student
