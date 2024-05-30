@@ -16,9 +16,9 @@ CLASS zju_cl_rap_eml_demo IMPLEMENTATION.
   METHOD if_oo_adt_classrun~main.
   data: it_student type table for create zju_i_rap_student_001.
     it_student = VALUE #( ( %cid = 'First Test'
-                          Firstname = 'Juergen'
+                          Firstname = 'Junge'
                           Lastname = 'Lastname'
-                               Age = 35
+                               Age = 66
                             Course = 'C'
                     Courseduration = 4
                             Status = abap_true
