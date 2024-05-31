@@ -28,8 +28,8 @@ CLASS lhc_Student IMPLEMENTATION.
         APPEND VALUE #( %tky = student-%tky ) TO failed-student.
 
         APPEND VALUE #( %tky = student-%tky
-                        %msg = NEW /dmo/cm_flight_messages(
-                                   textid     = /dmo/cm_flight_messages=>begin_date_bef_end_date
+                        %msg = NEW zju_cx_student_messages(
+                                   textid     = zju_cx_student_messages=>begin_date_bef_end_date
                                    severity   = if_abap_behv_message=>severity-error
 *                                  age        = student-age
 *                                  id         = student-age
@@ -42,8 +42,8 @@ CLASS lhc_Student IMPLEMENTATION.
         APPEND VALUE #( %tky        = student-%tky ) TO failed-student.
 
         APPEND VALUE #( %tky = student-%tky
-                        %msg = NEW /dmo/cm_flight_messages(
-                                    textid   = /dmo/cm_flight_messages=>begin_date_on_or_bef_sysdate
+                        %msg = NEW zju_cx_student_messages(
+                                    textid   = zju_cx_student_messages=>begin_date_on_or_bef_sysdate
                                     severity = if_abap_behv_message=>severity-error )
                         %element-age  = if_abap_behv=>mk-on
                       ) TO reported-student.
