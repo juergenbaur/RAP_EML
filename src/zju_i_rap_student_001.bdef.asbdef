@@ -14,4 +14,6 @@ field ( readonly : update ) Id;
   create;
   update;
   delete;
+
+  validation validateAge on save { create; update; field age; }
 }

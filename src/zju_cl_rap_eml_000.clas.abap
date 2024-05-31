@@ -28,11 +28,11 @@ CLASS zju_cl_rap_eml_000 IMPLEMENTATION.
 *      RESULT DATA(students).
 *    out->write( students ).
 *    " step 1b - READ
-    READ ENTITIES OF zju_i_rap_student_001
-      ENTITY Student
-        FROM VALUE #( ( id = 'F6D07DF566731EDF87D1FE115C8B17AE' ) )
-      RESULT DATA(students).
-    out->write( students ).
+*    READ ENTITIES OF zju_i_rap_student_001
+*      ENTITY Student
+*        FROM VALUE #( ( id = 'F6D07DF566731EDF87D1FE115C8B17AE' ) )
+*      RESULT DATA(students).
+*   out->write( students ).
 *    " step 2 - READ specific fields
 *    READ ENTITIES OF zju_i_rap_student_001
 *      ENTITY Student
@@ -64,15 +64,21 @@ CLASS zju_cl_rap_eml_000 IMPLEMENTATION.
 *    out->write( reported ).  " complex structures not supported by the console output
 *
 *    " step 6 - MODIFY Update
-*    MODIFY ENTITIES OF zju_i_rap_student_001
-*      ENTITY Student
-*        UPDATE
-*          SET FIELDS WITH VALUE
-*            #( ( id = 'F6D07DF566731EDF87D1FE115C8B17AE'
-*                 Courseduration = '99' ) )
-*     FAILED failed
-*     REPORTED reported.
-*
+    MODIFY ENTITIES OF zju_i_rap_student_001
+      ENTITY Student
+        UPDATE
+          SET FIELDS WITH VALUE
+            #( ( id = 'F6D07DF566731EDF87D1FE115C8B17AE'
+                 age = '77' ) )
+     FAILED data(failed)
+     MAPPED data(mapped)
+     REPORTED data(reported).
+
+    READ ENTITIES OF zju_i_rap_student_001
+      ENTITY Student
+      ALL FIELDS
+        WITH VALUE #( ( id = 'F6D07DF566731EDF87D1FE115C8B17AE' ) )
+      RESULT data(Students).
 *    out->write( 'Update done' ).
 *
 *     " step 6b - Commit Entities
@@ -82,21 +88,21 @@ CLASS zju_cl_rap_eml_000 IMPLEMENTATION.
 *       REPORTED   DATA(reported_commit).
 
     " step 7 - MODIFY 1 = "Create an entity"
-       MODIFY ENTITIES OF zju_i_rap_student_001
-        ENTITY Student
-          CREATE
-            SET FIELDS WITH VALUE
-            #( ( %cid        = 'MyContentID_1'
-                 Firstname = 'Franz'
-                 Lastname = 'Kneer'
-                       Age = 95
-                            Course = 'C'
-                    Courseduration = 4
-                            Status = abap_true ) )
-
-     MAPPED DATA(mapped)
-     FAILED DATA(failed)
-     REPORTED DATA(reported).
+*       MODIFY ENTITIES OF zju_i_rap_student_001
+*        ENTITY Student
+*          CREATE
+*            SET FIELDS WITH VALUE
+*            #( ( %cid        = 'MyContentID_1'
+*                 Firstname = 'Franz'
+*                 Lastname = 'Kneer'
+*                       Age = 95
+*                            Course = 'C'
+*                    Courseduration = 4
+*                            Status = abap_true ) )
+*
+*     MAPPED DATA(mapped)
+*     FAILED DATA(failed)
+*     REPORTED DATA(reported).
 
     out->write( mapped-student ).
 
