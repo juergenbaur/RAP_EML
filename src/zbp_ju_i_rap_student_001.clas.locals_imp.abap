@@ -15,11 +15,11 @@ CLASS lhc_Student IMPLEMENTATION.
 
   METHOD validateAge.
 
-  READ ENTITIES OF zju_i_rap_student_001 IN LOCAL MODE
-      ENTITY Student
-        FIELDS ( age )
-        WITH CORRESPONDING #( keys )
-      RESULT DATA(studets).
+    READ ENTITIES OF zju_i_rap_student_001 IN LOCAL MODE
+        ENTITY Student
+          FIELDS ( age )
+          WITH CORRESPONDING #( keys )
+        RESULT DATA(studets).
 
     LOOP AT studets INTO DATA(student).
 
@@ -29,10 +29,10 @@ CLASS lhc_Student IMPLEMENTATION.
 
         APPEND VALUE #( %tky = student-%tky
                         %msg = NEW zju_cx_student_messages(
-                                   textid     = zju_cx_student_messages=>begin_date_bef_end_date
+                                   textid     = zju_cx_student_messages=>you_are_too_old
                                    severity   = if_abap_behv_message=>severity-error
-*                                  age        = student-age
-*                                  id         = student-age
+                                   id         = student-id
+                                   age        = student-age
 )
                         %element-age          = if_abap_behv=>mk-on
                      ) TO reported-student.
@@ -43,13 +43,16 @@ CLASS lhc_Student IMPLEMENTATION.
 
         APPEND VALUE #( %tky = student-%tky
                         %msg = NEW zju_cx_student_messages(
-                                    textid   = zju_cx_student_messages=>begin_date_on_or_bef_sysdate
-                                    severity = if_abap_behv_message=>severity-error )
+                                    textid   = zju_cx_student_messages=>you_are_too_young
+                                    severity = if_abap_behv_message=>severity-error
+                                   id         = student-id
+                                   age        = student-age
+          )
                         %element-age  = if_abap_behv=>mk-on
                       ) TO reported-student.
       ENDIF.
 
-  ENDLOOP.
+    ENDLOOP.
 
   ENDMETHOD.
 
