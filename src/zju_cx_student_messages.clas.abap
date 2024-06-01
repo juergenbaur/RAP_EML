@@ -40,7 +40,7 @@ CLASS zju_cx_student_messages DEFINITION
         attr3                 TYPE string OPTIONAL
         attr4                 TYPE string OPTIONAL
         previous              LIKE previous OPTIONAL
-        id                    type sysuuid_x16 OPTIONAL
+        id                    type string OPTIONAL
         age                   TYPE n OPTIONAL
         severity              TYPE if_abap_behv_message=>t_severity OPTIONAL
         uname                 TYPE syuname OPTIONAL.
@@ -51,7 +51,7 @@ CLASS zju_cx_student_messages DEFINITION
       mv_attr2                 TYPE string,
       mv_attr3                 TYPE string,
       mv_attr4                 TYPE string,
-      my_id                    type sysuuid_x16,
+      my_id                    type string,
       mv_age                   TYPE n.
 
   PROTECTED SECTION.

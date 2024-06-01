@@ -69,7 +69,7 @@ CLASS zju_cl_rap_eml_000 IMPLEMENTATION.
         UPDATE
           SET FIELDS WITH VALUE
             #( ( id = 'F6D07DF566731EDF87D1FE115C8B17AE'
-                 age = '77' ) )
+                 age = '99' ) )
      FAILED data(failed)
      MAPPED data(mapped)
      REPORTED data(reported).
@@ -112,6 +112,12 @@ CLASS zju_cl_rap_eml_000 IMPLEMENTATION.
       FAILED     DATA(failed_commit)
       REPORTED   DATA(reported_commit).
 
+loop at reported_commit-student into data(error).
+
+ data(msgid) = error-%msg->if_t100_message~t100key-msgid.
+  data(text) = error-%msg->if_message~get_text(  ).
+
+ENDLOOP.
     out->write( 'Create done' ).
 
 *  data: it_student type table for create zju_i_rap_student_001.

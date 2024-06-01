@@ -21,6 +21,8 @@ CLASS lhc_Student IMPLEMENTATION.
           WITH CORRESPONDING #( keys )
         RESULT DATA(studets).
 
+
+data lv_val type string VALUE '234534'.
     LOOP AT studets INTO DATA(student).
 
       IF student-age > 77.  "you are too old
@@ -31,7 +33,7 @@ CLASS lhc_Student IMPLEMENTATION.
                         %msg = NEW zju_cx_student_messages(
                                    textid     = zju_cx_student_messages=>you_are_too_old
                                    severity   = if_abap_behv_message=>severity-error
-                                   id         = student-id
+                                   id         = lv_val
                                    age        = student-age
 )
                         %element-age          = if_abap_behv=>mk-on
@@ -45,7 +47,7 @@ CLASS lhc_Student IMPLEMENTATION.
                         %msg = NEW zju_cx_student_messages(
                                     textid   = zju_cx_student_messages=>you_are_too_young
                                     severity = if_abap_behv_message=>severity-error
-                                   id         = student-id
+                                   id         = lv_val
                                    age        = student-age
           )
                         %element-age  = if_abap_behv=>mk-on
