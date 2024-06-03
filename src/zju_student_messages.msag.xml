@@ -20,6 +20,12 @@
      <MSGNR>002</MSGNR>
      <TEXT>ID &amp;1 Age &amp;2 is too young for this funciton</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZJU_STUDENT_MESSAGES</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>User &amp;1 not allowed</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>
